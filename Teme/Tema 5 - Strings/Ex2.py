@@ -1,3 +1,5 @@
+# Replace with "x" last char in each product_code_list element.
+
 product_code_list = [
     "mmf2",
     "xdfr",
