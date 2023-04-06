@@ -1,6 +1,7 @@
 import string
 import random
 
+
 def get_user_length() -> int:
     """
     Prompts the user to input a password length and returns it as an integer.
@@ -11,6 +12,7 @@ def get_user_length() -> int:
         return int(length)
     except:
         raise ValueError("Not an integer!")
+
 
 def get_user_choice(prompt: str) -> bool:
     """
@@ -23,6 +25,7 @@ def get_user_choice(prompt: str) -> bool:
             print("Not an appropriate choice: choose between y and n!")
         else:
             return choice.lower() == "y"
+
 
 def create_password():
     """
@@ -42,6 +45,7 @@ def create_password():
             password += c
             last_char = c
     return print(password)
+
 
 pass_length = get_user_length()
 digit = get_user_choice("Use digits [y/n]? ")
