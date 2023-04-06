@@ -1,59 +1,50 @@
 import string
 import random
 
-"""Defining the constants that return the chosen type of characters"""
-letters = string.ascii_letters
-letters_num = letters + string.digits
-letters_symb = letters + string.punctuation
-all_char = letters + string.digits + string.punctuation
-
-
-length = input("Password length: ")
-
-while True:
-    use_digits = input("Use digits [y/n]? ")
-    if use_digits.lower() not in ("y", "n"):
-        print("Not an appropriate choice: choose between y and n!")
-    else:
-        break
-
-while True:
-    use_symbols = input("Use symbols [y/n]? ")
-    if use_symbols.lower() not in ("y", "n"):
-        print("Not an appropriate choice: choose between y and n!")
-    else:
-        break
-
-def get_user_length():
+def get_user_length() -> int:
+    """
+    Prompts the user to input a password length and returns it as an integer.
+    Raises a ValueError if the user's input is not an integer.
+    """
+    length = input("Password length: ")
     try:
         return int(length)
     except:
-        raise ValueError("Insert an integer!")
+        raise ValueError("Not an integer!")
 
-def get_user_use_digits():
-    if use_digits == "y":
-        return True
-    if use_digits == "n":
-        return False
-
-def get_user_use_symbols():
-    if use_symbols == "y":
-        return True
-    if use_symbols == "n":
-        return False
-    
-def create_password():
-    password = list()
-    for i in range(get_user_length(length)):
-        if get_user_use_digits(use_digits) and get_user_use_symbols(use_symbols):
-            password.append(all_char[random.randint(0, len(all_char) + 1)])
-        elif get_user_use_digits(use_digits) and not get_user_use_symbols(use_symbols):
-            password.append(letters_num[random.randint(0, len(letters_num) + 1)])
-        elif get_user_use_symbols(use_symbols) and not get_user_use_digits(use_digits):
-            password.append(letters_symb[random.randint(0, len(letters_symb) + 1)])
+def get_user_choice(prompt: str) -> bool:
+    """
+    Prompts the user with a yes/no question specified by the 'prompt' parameter.
+    Returns a boolean value based on the user's choice.
+    """
+    while True:
+        choice = input(prompt)
+        if choice.lower() not in ("y", "n"):
+            print("Not an appropriate choice: choose between y and n!")
         else:
-            password.append(letters[random.randint(0, len(letters))])
-    str_password = "".join(password)
-    return print(str_password)
+            return choice.lower() == "y"
+
+def create_password():
+    """
+    Generates a password based on the user's chosen length and character sets.
+    Prints the password to the console.
+    """
+    password = ""
+    last_char = ""
+    user_chars = string.ascii_letters
+    if digit:
+        user_chars += string.digits
+    if symbol:
+        user_chars += string.punctuation
+    while len(password) < pass_length:
+        c = user_chars[random.randint(0, len(user_chars)-1)]
+        if c != last_char:
+            password += c
+            last_char = c
+    return print(password)
+
+pass_length = get_user_length()
+digit = get_user_choice("Use digits [y/n]? ")
+symbol = get_user_choice("Use symbols [y/n]? ")
 
 create_password()

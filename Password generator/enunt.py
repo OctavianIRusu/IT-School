@@ -15,3 +15,10 @@
     # get_user_length -> returneaza (int) ce a raspuns utilizatorul la intrebare
     # get_user_use_digits -> returneaza (bool) True daca userul introduce y, False daca altceva
     # get_user_use_symbols -> idem
+
+import string
+
+string = "abcdef"
+
+for i in range(0, 4):
+    print(string[i])
