@@ -4,7 +4,7 @@ import random
 
 def get_user_length() -> int:
     """
-    Prompts the user to input a password length and returns it as an integer.
+    Prompts the user to input the length of the password and returns it as an integer.
     Raises a ValueError if the user's input is not an integer.
     """
     length = input("Password length: ")
@@ -16,8 +16,8 @@ def get_user_length() -> int:
 
 def get_user_choice(prompt: str) -> bool:
     """
-    Prompts the user with a yes/no question specified by the 'prompt' parameter.
-    Returns a boolean value based on the user's choice.
+    Prompts the user with a yes/no question to let the user choose if the
+    password should contain digits or symbols. Returns a boolean value.
     """
     while True:
         choice = input(prompt)
