@@ -16,7 +16,7 @@ d1 = {
     "id": 1
 }
 
-# serializare
+
 # with open(json_dump_path, "w") as fout:
 #     json.dump(d1, fout, indent=4)
 try:
@@ -26,5 +26,6 @@ except OSError:
     print("File not found!")
 except json.JSONDecodeError:
     print("Invalid JSON file.")
+    # print(json_content)
 else:
     print(json_content["resolved"])
